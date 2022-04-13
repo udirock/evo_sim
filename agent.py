@@ -11,11 +11,11 @@ class Agent:
     self.env=env
     self.baseProps = baseProps
     if (baseProps is None):
-      self.baseProps=MathUtils.genUnif(self.env.numTraits)
-    self.plasticity=plasticity
-    if (plasticity is None):
-      self.plasticity=MathUtils.genUnif(1)[0]*0.2
-    self.phenoProps=[]
+      self.baseProps=MathUtils.genUnit(0.5,self.env.numTraits)
+    #self.plasticity=plasticity
+    #if (plasticity is None):
+    #      self.plasticity=MathUtils.genUnif(1)[0]*0.2
+    #self.phenoProps=[]
     self.fitness=None
 
   def grow(self):
@@ -44,7 +44,7 @@ class Agent:
 
 
   def __repr__(self):
-    return f'[base={self.baseProps}\n\tplas={self.plasticity}\n\tpheno={self.phenoProps}\n\tenv={self.env}\nfitness={self.fitness} ]\n'
+    return f'Agent base={self.baseProps}\nfitness={self.fitness}'
 
 
   @staticmethod

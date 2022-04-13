@@ -9,18 +9,20 @@ class EcoEnv:
   def __init__(self,ind):
 
     self.numTraits=10
-    self.target=MathUtils.genUnif(self.numTraits)
-    self.max_agents=10
+    self.target = MathUtils.genNorm(self.numTraits)
+    self.target /= numpy.sum(numpy.absolute(self.target))
+    #self.max_agents=10
     self.ind = ind
     self.name = chr(self.ind+65)
-    self.agents=[]
+    #self.agents=[]
 
 
   def desc(self):
     return f'{self.ind}:{self.name}, {len(self.agents)} Agents'
+    #return f'{self.ind}:{self.name}, {len(self.agents)} Agents'
 
   def __repr__(self):
-    return f't={self.target}'
+    return f'Env target={self.target}'
 
   def change(self):
     self.target = MathUtils.tweak(self.target,0.05)

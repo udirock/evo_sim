@@ -9,12 +9,21 @@ class MathUtils:
     return res
 
   @staticmethod
+  def genNorm(n):
+    res = numpy.random.standard_normal(n)
+    return res
+
+  @staticmethod
   def genUnifScalar(n):
     return self.genUnif(n)[0]
 
   @staticmethod
-  def bernoulli(p):
-    return numpy.random.binomial(1, p) > 0
+  def genUnit(p, size=None):
+    return numpy.random.binomial(1, p, size=size)*2-1
+
+  @staticmethod
+  def bernoulli(p,size=None):
+    return numpy.random.binomial(1, p,size=size) > 0
 
 
   @staticmethod
